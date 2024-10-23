@@ -148,7 +148,7 @@ print("[1] means 'GO'\n[0] means 'NO'\n")
 
 
 
-#--------------------------------------------------Visualizing Feature Importance-----------------------------------
+#-----------------------------------Visualizing Feature Importance-----------------------------------
 import matplotlib
 matplotlib.use('TkAgg')  # Choose an interactive backend
 import matplotlib.pyplot as plt
@@ -267,3 +267,50 @@ print("Prediction for new data [40, 10, 7, 1]:", y_pred_new[0])
 
 # Optionally print the confusion matrix
 print("Confusion Matrix:\n", cm)
+
+
+
+
+
+
+
+
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
+
+# Load the dataset
+df = pd.read_csv("G:/Machine Learning/w3 School/Decision Tree/data.csv")
+
+# Map categorical variables to numerical values
+df['Nationality'] = df['Nationality'].map({'UK': 0, 'USA': 1, 'N': 2})
+df['Go'] = df['Go'].map({'YES': 1, 'NO': 0})
+
+# Define features and target
+features = ['Age', 'Experience', 'Rank', 'Nationality']
+X = df[features]
+y = df['Go']
+
+# Create and fit the Decision Tree model
+dtree = DecisionTreeClassifier()
+dtree.fit(X, y)
+
+# Plotting the Decision Tree
+plt.figure(figsize=(12, 8))
+tree.plot_tree(dtree, feature_names=features, filled=True, rounded=True, class_names=['NO', 'YES'])
+plt.title('Decision Tree Visualization')
+plt.show()
+
+# Generate predictions for confusion matrix
+y_pred = dtree.predict(X)
+
+# Create and display confusion matrix
+cm = confusion_matrix(y, y_pred)
+disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=['NO', 'GO'])
+disp.plot(cmap=plt.cm.Blues)
+plt.title('Confusion Matrix')
+plt.show()
+
+# Print predictions for clarity
+print("Predictions:", y_pred)

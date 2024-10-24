@@ -1,11 +1,12 @@
 """
 
-    Machine Learning - Confusion Matrix
+    --------------------------------Machine Learning - Confusion Matrix------------------------------
 
     
     It is a table that is used in classification problems to assess where errors in the model were made.
     
-    The rows represent the actual classes the outcomes should have been. While the columns represent the predictions we have made. Using this table it is easy to see which predictions are wrong.
+    The rows represent the actual classes the outcomes should have been. While the columns represent 
+    the predictions we have made. Using this table it is easy to see which predictions are wrong.
     
     
 
@@ -29,7 +30,7 @@ plt.show()
 
 """
 
-    Results Explained
+    -----------------------------------------Results Explained-----------------------------------------
     
     The Confusion Matrix created has four different quadrants:
         True Negative (Top-Left Quadrant)
@@ -52,7 +53,7 @@ plt.show()
 """
 
 
-    Accuracy
+    -----------------------------------------------Accuracy---------------------------------------
     
     Accuracy measures how often the model is correct.
     
@@ -78,7 +79,8 @@ print(Accuracy)
 
 """
 
-    Precision
+    ----------------------------------------Precision---------------------------------------------
+    
     Of the positives predicted, what percentage is truly positive?
 
     How to Calculate
@@ -107,17 +109,22 @@ print(Precision)
 """
 
 
-Sensitivity (Recall)
-Of all the positive cases, what percentage are predicted positive?
+------------------------------------------Sensitivity (Recall)---------------------------------------
 
-Sensitivity (sometimes called Recall) measures how good the model is at predicting positives.
+    Of all the positive cases, what percentage are predicted positive?
 
-This means it looks at true positives and false negatives (which are positives that have been incorrectly predicted as negative).
+    Sensitivity (sometimes called Recall) measures how good the model is at predicting positives.
 
-How to Calculate
-True Positive / (True Positive + False Negative)
+    This means it looks at true positives and false negatives (which are positives that have been incorrectly predicted as negative).
 
-Sensitivity is good at understanding how well the model predicts something is positive:
+    How to Calculate
+                
+                True Positive / (True Positive + False Negative)
+
+    
+    
+    
+    Sensitivity is good at understanding how well the model predicts something is positive:
 
 
 """
@@ -137,13 +144,18 @@ print(Sensitivity_recall)
 
 
 """
+-----------------------------------------------Specificity---------------------------------------- 
 
     How well the model is at prediciting negative results?
 
-Specificity is similar to sensitivity, but looks at it from the persepctive of negative results.
+    Specificity is similar to sensitivity, but looks at it from the persepctive of negative results.
 
-How to Calculate
-True Negative / (True Negative + False Positive)
+        How to Calculate
+                
+                    True Negative / (True Negative + False Positive)
+
+
+
 
 Since it is just the opposite of Recall, we use the recall_score function, taking the opposite position label:
 
@@ -163,18 +175,26 @@ print(Specificity)
 
 """
 
-    F-score
-F-score is the "harmonic mean" of precision and sensitivity.
 
-It considers both false positive and false negative cases and is good for imbalanced datasets.
+----------------------------------------------- F-score----------------------------------------------
 
-How to Calculate
-2 * ((Precision * Sensitivity) / (Precision + Sensitivity))
 
-This score does not take into consideration the True Negative values:
+    F-score is the "harmonic mean" of precision and sensitivity.
 
-Example
-F1_score = metrics.f1_score(actual, predicted)
+    It considers both false positive and false negative cases and is good for imbalanced datasets.
+
+            How to Calculate
+                        
+                        
+                        2 * ((Precision * Sensitivity) / (Precision + Sensitivity))
+
+    
+    
+    This score does not take into consideration the True Negative values:
+
+        Example
+                
+                F1_score = metrics.f1_score(actual, predicted)
 
 
 """

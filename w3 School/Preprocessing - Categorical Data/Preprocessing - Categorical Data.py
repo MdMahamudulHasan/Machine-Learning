@@ -1,12 +1,14 @@
 """
 
-    Preprocessing - Categorical Data
+    -----------------------------------Preprocessing - Categorical Data-------------------------------
 
     
     
-    When your data has categories represented by strings, it will be difficult to use them to train machine learning models which often only accepts numeric data.
+    When your data has categories represented by strings, it will be difficult to use them to train 
+    machine learning models which often only accepts numeric data.
 
-    Instead of ignoring the categorical data and excluding the information from our model, you can transform the data so it can be used in your models.
+    Instead of ignoring the categorical data and excluding the information from our model, you can 
+    transform the data so it can be used in your models.
 
 
 """
@@ -23,13 +25,16 @@ print(cars.to_string())
 
 """
 
-    One Hot Encoding
+    ---------------------------------------------One Hot Encoding-------------------------------------
     
-    We cannot make use of the Car or Model column in our data since they are not numeric. A linear relationship between a categorical variable, Car or Model, and a numeric variable, CO2, cannot be determined.
+    We cannot make use of the Car or Model column in our data since they are not numeric. A linear 
+    relationship between a categorical variable, Car or Model, and a numeric variable, CO2, cannot be determined.
 
-    To fix this issue, we must have a numeric representation of the categorical variable. One way to do this is to have a column representing each group in the category.
+    To fix this issue, we must have a numeric representation of the categorical variable. One way to do 
+    this is to have a column representing each group in the category.
 
-    For each column, the values will be 1 or 0 where 1 represents the inclusion of the group and 0 represents the exclusion. This transformation is called one hot encoding.
+    For each column, the values will be 1 or 0 where 1 represents the inclusion of the group and 0 
+    represents the exclusion. This transformation is called one hot encoding.
 
     the Python Pandas module has a function that called get_dummies() which does one hot encoding.
 
@@ -50,10 +55,11 @@ print(ohe_cars.to_string())
 
 
 """
-    Predict CO2
-We can use this additional information alongside the volume and weight to predict CO2
+----------------------------------------------- Predict CO2---------------------------------------
 
-To combine the information, we can use the concat() function from pandas.
+    We can use this additional information alongside the volume and weight to predict CO2
+
+    To combine the information, we can use the concat() function from pandas.
 
 
 """
@@ -81,10 +87,11 @@ print(predictedCO2)
 
 """
 
-    Dummifying
+------------------------------------------------ Dummifying------------------------------------------
     
     
-It is not necessary to create one column for each group in your category. The information can be retained using 1 column less than the number of groups you have.
+    It is not necessary to create one column for each group in your category. The information can be 
+    retained using 1 column less than the number of groups you have.
 
 
 """
@@ -96,9 +103,10 @@ colors = pd.DataFrame({'color': ['blue', 'red']})
 print(colors)
 
 """
-What if you have more than 2 groups? How can the multiple groups be represented by 1 less column?
+    What if you have more than 2 groups? How can the multiple groups be represented by 1 less column?
 
-Let's say we have three colors this time, red, blue and green. When we get_dummies while dropping the first column, we get the following table.
+    Let's say we have three colors this time, red, blue and green. When we get_dummies while dropping 
+    the first column, we get the following table.
 
 """
 import pandas as pd 

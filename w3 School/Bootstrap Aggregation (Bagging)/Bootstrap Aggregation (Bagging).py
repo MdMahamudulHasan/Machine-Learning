@@ -1,17 +1,23 @@
 """
-    Bootstrap Aggregation (Bagging)
+    -----------------------------------------------Bootstrap Aggregation (Bagging)----------------------------------------
     
     Methods such as Decision Trees, can be prone to overfitting on the training set which can lead to wrong predictions on new data.
 
-    Bootstrap Aggregation (bagging) is a ensembling method that attempts to resolve overfitting for classification or regression problems. Bagging aims to improve the accuracy and performance of machine learning algorithms. It does this by taking random subsets of an original dataset, with replacement, and fits either a classifier (for classification) or regressor (for regression) to each subset. The predictions for each subset are then aggregated through majority vote for classification or averaging for regression, increasing prediction accuracy.
+    Bootstrap Aggregation (bagging) is a ensembling method that attempts to resolve overfitting for classification or 
+    regression problems. Bagging aims to improve the accuracy and performance of machine learning algorithms. It does this 
+    by taking random subsets of an original dataset, with replacement, and fits either a classifier (for classification) or 
+    regressor (for regression) to each subset. The predictions for each subset are then aggregated through majority vote for 
+    classification or averaging for regression, increasing prediction accuracy.
 
 
     
     
-    Evaluating a Base Classifier
+    ---------------------------------------------------Evaluating a Base Classifier----------------------------------------
 
     
-    To see how bagging can improve model performance, we must start by evaluating how the base classifier performs on the dataset. If you do not know what decision trees are review the lesson on decision trees before moving forward, as bagging is a continuation of the concept.
+    To see how bagging can improve model performance, we must start by evaluating how the base classifier performs on the 
+    dataset. If you do not know what decision trees are review the lesson on decision trees before moving forward, as 
+    bagging is a continuation of the concept.
 
 
 """
@@ -45,12 +51,16 @@ print("Test data accuracy: ", test_data_accuracy)
 """
 
 
-    Creating a Bagging Classifier
+    ----------------------------------------------------Creating a Bagging Classifier---------------------------------------
     
     
-    For bagging we need to set the parameter n_estimators, this is the number of base classifiers that our model is going to aggregate together.
+    For bagging we need to set the parameter n_estimators, this is the number of base classifiers that our model is going to 
+    aggregate together.
 
-    For this sample dataset the number of estimators is relatively low, it is often the case that much larger ranges are explored. Hyperparameter tuning is usually done with a grid search, but for now we will use a select set of values for the number of estimators.
+    
+    For this sample dataset the number of estimators is relatively low, it is often the case that much larger ranges are 
+    explored. Hyperparameter tuning is usually done with a grid search, but for now we will use a select set of values for 
+    the number of estimators.
 
 
 
@@ -107,10 +117,16 @@ plt.show()
 
 
 """
-    Another Form of Evaluation
-As bootstrapping chooses random subsets of observations to create classifiers, there are observations that are left out in the selection process. These "out-of-bag" observations can then be used to evaluate the model, similarly to that of a test set. Keep in mind, that out-of-bag estimation can overestimate error in binary classification problems and should only be used as a compliment to other metrics.
+--------------------------------------------- Another Form of Evaluation---------------------------------------------------
 
-We saw in the last exercise that 12 estimators yielded the highest accuracy, so we will use that to create our model. This time setting the parameter oob_score to true to evaluate the model with out-of-bag score.
+
+    As bootstrapping chooses random subsets of observations to create classifiers, there are observations that are left out 
+    in the selection process. These "out-of-bag" observations can then be used to evaluate the model, similarly to that of a 
+    test set. Keep in mind, that out-of-bag estimation can overestimate error in binary classification problems and should 
+    only be used as a compliment to other metrics.
+
+    We saw in the last exercise that 12 estimators yielded the highest accuracy, so we will use that to create our model. 
+    This time setting the parameter oob_score to true to evaluate the model with out-of-bag score.
 
 
 """
@@ -139,24 +155,27 @@ print(oob_model.oob_score_)
 
 
 """
-
-
-
-Since the samples used in OOB and the test set are different, and the dataset is relatively small, there is a difference in the accuracy. It is rare that they would be exactly the same, again OOB should be used quick means for estimating error, but is not the only evaluation metric.
-
-"""
+    Since the samples used in OOB and the test set are different, and the dataset is relatively small, there is a difference 
+    in the accuracy. It is rare that they would be exactly the same, again OOB should be used quick means for estimating 
+    error, but is not the only evaluation metric.
 
 """
 
 
 
 
-    Generating Decision Trees from Bagging Classifier
-As was seen in the Decision Tree lesson, it is possible to graph the decision tree the model created. It is also possible to see the individual decision trees that went into the aggregated classifier. This helps us to gain a more intuitive understanding on how the bagging model arrives at its predictions.
+"""
 
-Note: This is only functional with smaller datasets, where the trees are relatively shallow and narrow making them easy to visualize.
 
-We will need to import plot_tree function from sklearn.tree. The different trees can be graphed by changing the estimator you wish to visualize.
+
+
+---------------------------------------Generating Decision Trees from Bagging Classifier-----------------------------------
+
+    As was seen in the Decision Tree lesson, it is possible to graph the decision tree the model created. It is also possible to see the individual decision trees that went into the aggregated classifier. This helps us to gain a more intuitive understanding on how the bagging model arrives at its predictions.
+
+    Note: This is only functional with smaller datasets, where the trees are relatively shallow and narrow making them easy to visualize.
+
+    We will need to import plot_tree function from sklearn.tree. The different trees can be graphed by changing the estimator you wish to visualize.
 
 
 

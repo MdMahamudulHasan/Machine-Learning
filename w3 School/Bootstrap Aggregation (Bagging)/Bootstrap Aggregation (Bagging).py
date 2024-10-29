@@ -171,11 +171,14 @@ print(oob_model.oob_score_)
 
 ---------------------------------------Generating Decision Trees from Bagging Classifier-----------------------------------
 
-    As was seen in the Decision Tree lesson, it is possible to graph the decision tree the model created. It is also possible to see the individual decision trees that went into the aggregated classifier. This helps us to gain a more intuitive understanding on how the bagging model arrives at its predictions.
+    As was seen in the Decision Tree lesson, it is possible to graph the decision tree the model created. It is also 
+    possible to see the individual decision trees that went into the aggregated classifier. This helps us to gain a more 
+    intuitive understanding on how the bagging model arrives at its predictions.
 
     Note: This is only functional with smaller datasets, where the trees are relatively shallow and narrow making them easy to visualize.
 
-    We will need to import plot_tree function from sklearn.tree. The different trees can be graphed by changing the estimator you wish to visualize.
+    We will need to import plot_tree function from sklearn.tree. The different trees can be graphed by changing the 
+    estimator you wish to visualize.
 
 
 
